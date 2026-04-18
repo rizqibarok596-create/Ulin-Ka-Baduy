@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulin Ka Baduy | Open Trip & Eksplorasi Budaya</title>
+    <style>
+        /* Reset & Dasar Typography */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #FAFAFA; color: #333; }
+        
+        /* Navbar */
+        header { background-color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: bold; color: #2C5E3B; }
+        nav a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 500; }
+        
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(44, 94, 59, 0.8), rgba(44, 94, 59, 0.8)), url('https://via.placeholder.com/1200x600/2C5E3B/FFFFFF?text=Foto+Lanskap+Baduy+Di+Sini') center/cover;
+            color: white; text-align: center; padding: 120px 20px; 
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: 1px; }
+        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
+        .cta-btn { background-color: #D4A373; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px; transition: 0.3s; }
+        .cta-btn:hover { background-color: #B58555; }
+
+        /* Packages Section */
+        .packages { padding: 80px 50px; text-align: center; }
+        .packages h2 { font-size: 36px; color: #2C5E3B; margin-bottom: 50px; }
+        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        
+        /* Stratified Package Cards */
+        .card { background: white; padding: 40px 30px; border-radius: 10px; width: 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #2C5E3B; text-align: left;}
+        .card.premium { border-top: 5px solid #D4A373; transform: translateY(-10px); } /* Highlight the premium tier */
+        .card h3 { font-size: 24px; margin-bottom: 10px; }
+        .card .price { font-size: 28px; font-weight: bold; color: #2C5E3B; margin-bottom: 20px; }
+        .card ul { list-style: none; margin-bottom: 30px; color: #666; }
+        .card ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .card ul li::before { content: '✓'; position: absolute; left: 0; color: #D4A373; font-weight: bold;}
+        .card-btn { display: block; text-align: center; border: 2px solid #2C5E3B; color: #2C5E3B; text-decoration: none; padding: 10px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .card-btn:hover { background-color: #2C5E3B; color: white; }
+        .card.premium .card-btn { background-color: #D4A373; border-color: #D4A373; color: white; }
+        .card.premium .card-btn:hover { background-color: #B58555; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ulin Ka Baduy.</div>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#paket">Paket Trip</a>
+            <a href="#itinerary">Itinerary</a>
+            <a href="#panduan">Panduan</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Kembali ke Alam, Menyelami Kesederhanaan.</h1>
+        <p>Tinggalkan sejenak hiruk-pikuk kota. Rasakan kedamaian dan kearifan lokal suku Baduy dalam perjalanan otentik yang telah kami rancang khusus untuk Anda.</p>
+        <a href="#paket" class="cta-btn">Mulai Petualangan</a>
+    </section>
+
+    <section id="paket" class="packages">
+        <h2>Pilihan Perjalanan Anda</h2>
+        <div class="cards-container">
+            
+            <div class="card">
+                <h3>Eksplorasi Baduy Luar</h3>
+                <p>Pengenalan budaya yang nyaman.</p>
+                <div class="price">Rp 250.000</div>
+                <ul>
+                    <li>Transportasi PP Stasiun</li>
+                    <li>Tiket masuk & Perizinan</li>
+                    <li>Homestay di Baduy Luar</li>
+                    <li>Makan 2x</li>
+                    <li>Guide lokal berpengalaman</li>
+                </ul>
+                <a href="#" class="card-btn">Pilih Paket</a>
+            </div>
+
+            <div class="card premium">
+                <h3>Ekspedisi Baduy Dalam</h3>
+                <p>Pengalaman otentik menyeluruh.</p>
+                <div class="price">Rp 450.000</div>
+                <ul>
+                    <li>Semua fasilitas Baduy Luar</li>
+                    <li>Trekking ke Baduy Dalam</li>
+                    <li>Menginap di rumah warga asli</li>
+                    <li>Makan 4x (Menu Tradisional)</li>
+                    <li>Porter untuk logistik grup</li>
+                </ul>
+                <a href="#" class="card-btn">Pilih Paket</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
