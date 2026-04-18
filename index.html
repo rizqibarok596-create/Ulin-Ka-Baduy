@@ -3,82 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ulin Ka Baduy | Open Trip & Eksplorasi Budaya</title>
+    <title>Ulin Ka Baduy | Eksplorasi Budaya Otentik</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #FAFAFA; color: #333; }
-        
-        /* Navbar */
-        header { background-color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 24px; font-weight: bold; color: #2C5E3B; text-decoration: none;}
-        nav a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: #2C5E3B; }
-        
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(44, 94, 59, 0.8), rgba(44, 94, 59, 0.8)), url('https://via.placeholder.com/1200x600/2C5E3B/FFFFFF?text=Foto+Lanskap+Baduy+Di+Sini') center/cover; color: white; text-align: center; padding: 120px 20px; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: 1px; }
-        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
-        
-        /* Navigation Cards Section */
-        .hub-section { padding: 80px 50px; text-align: center; }
-        .hub-section h2 { font-size: 36px; color: #2C5E3B; margin-bottom: 50px; }
-        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        
-        /* Hub Card Style */
-        .hub-card { background: white; padding: 40px 30px; border-radius: 10px; width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s; text-align: center; border-bottom: 4px solid transparent; }
-        .hub-card:hover { transform: translateY(-10px); border-bottom: 4px solid #D4A373; }
-        .hub-card h3 { font-size: 24px; margin-bottom: 15px; color: #2C5E3B; }
-        .hub-card p { color: #666; margin-bottom: 25px; line-height: 1.5; }
-        .hub-btn { display: inline-block; background-color: #2C5E3B; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .hub-btn:hover { background-color: #D4A373; }
-        
-        footer { background-color: #2C5E3B; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        /* --- Reset & Font --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Lexend', sans-serif; }
+        body { background-color: #FDFBF7; color: #1E3F27; overflow-x: hidden; }
+
+        /* --- Navbar Modern --- */
+        header { 
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 22px; font-weight: 800; color: #1E3F27; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+        .logo span { color: #D4A373; }
+        nav a { margin-left: 30px; text-decoration: none; color: #444; font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: #D4A373; }
+
+        /* --- Hero Section dengan Slideshow Otomatis --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        /* Background Slider menggunakan foto yang diunggah */
+        .hero-slider {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            animation: slideAnimation 18s infinite;
+        }
+
+        @keyframes slideAnimation {
+            0%, 33% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto1.jpg'); }
+            34%, 66% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto2.jpg'); }
+            67%, 100% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto3.jpg'); }
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 850px;
+            margin: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 56px; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+        .hero-content p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; line-height: 1.6; }
+
+        .cta-group { display: flex; gap: 20px; justify-content: center; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; font-size: 15px; }
+        .btn-gold { background: #D4A373; color: white; box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3); }
+        .btn-gold:hover { background: #B58555; transform: translateY(-3px); }
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn-outline:hover { background: white; color: #1E3F27; }
+
+        /* --- Trust Indicators --- */
+        .trust-section { background: #1E3F27; color: #D4A373; padding: 40px; display: flex; justify-content: space-around; text-align: center; }
+        .trust-item h3 { font-size: 28px; color: white; }
+        .trust-item p { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 5px; }
+
+        /* --- Hub Navigation Section --- */
+        .hub { padding: 100px 60px; text-align: center; }
+        .hub h2 { font-size: 32px; margin-bottom: 50px; font-weight: 800; }
+        .hub-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+
+        .hub-card {
+            background: white;
+            width: 350px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid #F0F0F0;
+            transition: 0.4s;
+            text-align: left;
+        }
+        .hub-card:hover { transform: translateY(-15px); border-color: #D4A373; }
+        .hub-card h4 { font-size: 22px; margin-bottom: 15px; }
+        .hub-card p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+        .hub-link { color: #1E3F27; text-decoration: none; font-weight: 700; font-size: 14px; border-bottom: 2px solid #D4A373; padding-bottom: 5px; }
+
+        footer { background: #152C1B; color: white; padding: 40px; text-align: center; font-size: 13px; opacity: 0.7; }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">Ulin Ka Baduy.</a>
+        <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
         <nav>
             <a href="index.html">Beranda</a>
             <a href="paket.html">Paket Trip</a>
-            <a href="galeri.html">Dokumentasi</a>
+            <a href="galeri.html">Galeri</a>
             <a href="panduan.html">Panduan</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Kembali ke Alam, Menyelami Kesederhanaan.</h1>
-        <p>Tinggalkan sejenak hiruk-pikuk kota. Rasakan kedamaian dan kearifan lokal suku Baduy dalam perjalanan otentik yang dirancang khusus untuk Anda.</p>
+        <div class="hero-slider"></div>
+        <div class="hero-content">
+            <h1>Lepas Penat,<br>Menyatu dengan Alam.</h1>
+            <p>Rasakan pengalaman otentik menjelajahi jantung tanah Kanekes. Sebuah perjalanan singkat yang akan mengubah cara Anda melihat dunia.</p>
+            <div class="cta-group">
+                <a href="paket.html" class="btn btn-gold">Pilih Paket Trip</a>
+                <a href="galeri.html" class="btn btn-outline">Lihat Dokumentasi</a>
+            </div>
+        </div>
     </section>
 
-    <section class="hub-section">
-        <h2>Jelajahi Layanan Kami</h2>
-        <div class="cards-container">
-            
-            <div class="hub-card">
-                <h3>Pilihan Paket</h3>
-                <p>Temukan paket perjalanan yang paling sesuai dengan jiwa petualang dan kebutuhan Anda, mulai dari eksplorasi ringan hingga ekspedisi mendalam.</p>
-                <a href="paket.html" class="hub-btn">Lihat Paket</a>
-            </div>
+    <section class="trust-section">
+        <div class="trust-item"><h3>500+</h3><p>Travelers</p></div>
+        <div class="trust-item"><h3>100%</h3><p>Lokal Asli</p></div>
+        <div class="trust-item"><h3>Aman</h3><p>Berlisensi</p></div>
+    </section>
 
+    <section class="hub">
+        <h2>Rencanakan Langkahmu</h2>
+        <div class="hub-grid">
             <div class="hub-card">
-                <h3>Dokumentasi Trip</h3>
-                <p>Intip momen-momen magis dan kehangatan interaksi yang terekam secara nyata dari perjalanan para peserta kami sebelumnya di tanah Kanekes.</p>
-                <a href="galeri.html" class="hub-btn">Lihat Galeri</a>
+                <h4>Paket Open Trip</h4>
+                <p>Mulai petualanganmu dari paket harian hingga ekspedisi Baduy Dalam yang mendalam.</p>
+                <a href="paket.html" class="hub-link">Cek Detail Harga</a>
             </div>
-
             <div class="hub-card">
-                <h3>Panduan & Aturan</h3>
-                <p>Pahami adat istiadat, pantangan, dan persiapan penting yang wajib diketahui sebelum Anda melangkahkan kaki memasuki kawasan suku Baduy.</p>
-                <a href="panduan.html" class="hub-btn">Baca Panduan</a>
+                <h4>Galeri Cerita</h4>
+                <p>Intip momen hangat dan kearifan lokal yang terekam dalam perjalanan kami sebelumnya.</p>
+                <a href="galeri.html" class="hub-link">Jelajahi Foto</a>
             </div>
-
+            <div class="hub-card">
+                <h4>Buku Panduan</h4>
+                <p>Pahami aturan adat dan persiapan penting sebelum menginjakkan kaki di tanah suci.</p>
+                <a href="panduan.html" class="hub-link">Baca Aturan</a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Ulin Ka Baduy. Semua Hak Dilindungi.</p>
+        &copy; 2026 Ulin Ka Baduy Travel Center. Semua Hak Dilindungi.
     </footer>
 
 </body>
