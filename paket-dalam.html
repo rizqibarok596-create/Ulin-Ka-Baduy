@@ -3,89 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Trip - Ulin Ka Baduy</title>
+    <title>Penyucian Baduy Dalam | Ulin Ka Baduy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Menggunakan style dasar yang sama dengan index */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #FAFAFA; color: #333; }
-        header { background-color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 24px; font-weight: bold; color: #2C5E3B; text-decoration: none;}
-        nav a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: #2C5E3B; }
+        /* CSS SAMA PERSIS DENGAN PAKET LUAR AGAR KONSISTEN */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #F9F6F0; color: #2C302E; font-family: 'Lato', sans-serif; line-height: 1.8; }
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
+        header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
+        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px;}
+        .logo span { color: #C18C5D; font-style: italic; }
+        nav a { margin-left: 35px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: 0.4s ease; }
+        nav a:hover { color: #C18C5D; }
+
+        /* Latar belakang hero menggunakan foto kedua */
+        .page-hero { height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('foto2.jpg') center/cover; margin-top: 80px; }
+        .page-hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 15px; }
+        .page-hero p { font-size: 18px; font-style: italic; opacity: 0.9; }
+
+        .package-container { max-width: 1100px; margin: 80px auto; padding: 0 40px; display: flex; gap: 60px; align-items: flex-start; }
+        .content-main { flex: 2; }
+        .content-main h2 { font-size: 32px; color: #546A50; margin-bottom: 20px; border-bottom: 1px solid #E5E0D8; padding-bottom: 10px;}
+        .content-main p { font-size: 16px; color: #444; margin-bottom: 25px; }
         
-        /* Header Halaman Spesifik */
-        .page-header { background-color: #2C5E3B; color: white; text-align: center; padding: 60px 20px; }
-        .page-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .itinerary-box { background: white; padding: 30px; border-left: 3px solid #546A50; margin: 40px 0; }
+        .itinerary-box h3 { color: #546A50; margin-bottom: 15px; font-size: 24px; }
+        .itinerary-box ul { list-style: none; margin-left: 10px;}
+        .itinerary-box li { margin-bottom: 15px; position: relative; padding-left: 25px; }
+        .itinerary-box li::before { content: '•'; position: absolute; left: 0; color: #C18C5D; font-size: 20px; font-weight: bold; top: -5px;}
+
+        .sidebar { flex: 1; position: sticky; top: 120px; }
+        .booking-card { background: white; padding: 40px; border-top: 5px solid #C18C5D; box-shadow: 0 15px 40px rgba(0,0,0,0.05); text-align: center; }
+        .booking-card h3 { font-size: 36px; color: #2C302E; margin-bottom: 5px; }
+        .booking-card .price-note { font-size: 14px; color: #888; margin-bottom: 25px; display: block; }
         
-        /* Style Card Paket Lama */
-        .packages { padding: 60px 50px; text-align: center; }
-        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .card { background: white; padding: 40px 30px; border-radius: 10px; width: 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #2C5E3B; text-align: left; }
-        .card.premium { border-top: 5px solid #D4A373; transform: scale(1.05); } 
-        .card h3 { font-size: 24px; margin-bottom: 10px; }
-        .card .price { font-size: 28px; font-weight: bold; color: #2C5E3B; margin-bottom: 20px; }
-        .card ul { list-style: none; margin-bottom: 30px; color: #666; }
-        .card ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .card ul li::before { content: '✓'; position: absolute; left: 0; color: #D4A373; font-weight: bold; }
-        .card-btn { display: block; text-align: center; border: 2px solid #2C5E3B; color: #2C5E3B; text-decoration: none; padding: 10px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .card-btn:hover { background-color: #2C5E3B; color: white; }
-        .card.premium .card-btn { background-color: #D4A373; border-color: #D4A373; color: white; }
-        .card.premium .card-btn:hover { background-color: #B58555; }
-        
-        footer { background-color: #2C5E3B; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        .facility-list { text-align: left; margin-bottom: 30px; font-size: 14px; color: #555; }
+        .facility-list li { margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px; list-style: none; }
+        .facility-list li span { color: #C18C5D; font-weight: bold; margin-right: 10px; }
+
+        .btn-gold { display: block; width: 100%; padding: 15px; background: #C18C5D; color: white; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border-radius: 3px;}
+        .btn-gold:hover { background: #A97142; }
+
+        footer { background: #2C302E; color: #F9F6F0; padding: 40px; text-align: center; font-size: 13px; margin-top: 80px;}
+
+        @media (max-width: 900px) {
+            .package-container { flex-direction: column; }
+            .sidebar { width: 100%; position: relative; top: 0; }
+            header { flex-direction: column; padding: 20px; gap: 15px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { margin-left: 0; }
+            .page-hero h1 { font-size: 36px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">Ulin Ka Baduy.</a>
+        <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
         <nav>
             <a href="index.html">Beranda</a>
-            <a href="paket.html" style="color:#2C5E3B; font-weight:bold;">Paket Trip</a>
-            <a href="galeri.html">Dokumentasi</a>
-            <a href="panduan.html">Panduan</a>
+            <a href="paket-luar.html">Kembara Luar</a>
+            <a href="paket-dalam.html" style="color: #C18C5D;">Penyucian Dalam</a>
+            <a href="panduan.html">Tata Krama</a>
         </nav>
     </header>
 
-    <div class="page-header">
-        <h1>Paket Open Trip Baduy</h1>
-        <p>Pilih pengalaman yang paling sesuai untuk liburan Anda.</p>
-    </div>
-
-    <section class="packages">
-        <div class="cards-container">
-            <div class="card">
-                <h3>Eksplorasi Baduy Luar</h3>
-                <p>Pengenalan budaya yang nyaman.</p>
-                <div class="price">Rp 250.000</div>
-                <ul>
-                    <li>Transportasi PP Stasiun</li>
-                    <li>Tiket masuk & Perizinan</li>
-                    <li>Homestay di Baduy Luar</li>
-                    <li>Makan 2x</li>
-                    <li>Guide lokal berpengalaman</li>
-                </ul>
-                <a href="#" class="card-btn">Pesan Sekarang</a>
-            </div>
-
-            <div class="card premium">
-                <h3>Ekspedisi Baduy Dalam</h3>
-                <p>Pengalaman otentik menyeluruh.</p>
-                <div class="price">Rp 450.000</div>
-                <ul>
-                    <li>Semua fasilitas Baduy Luar</li>
-                    <li>Trekking ke Baduy Dalam</li>
-                    <li>Menginap di rumah warga asli</li>
-                    <li>Makan 4x (Menu Tradisional)</li>
-                    <li>Porter untuk logistik grup</li>
-                </ul>
-                <a href="#" class="card-btn">Pesan Sekarang</a>
-            </div>
+    <section class="page-hero">
+        <div>
+            <h1>Penyucian Baduy Dalam</h1>
+            <p>"Sebuah ekspedisi spiritual mengasingkan diri dari modernitas."</p>
         </div>
     </section>
 
+    <section class="package-container">
+        <div class="content-main">
+            <h2>Tentang Ekspedisi Ini</h2>
+            <p>Tinggalkan seluruh gawai dan perangkat elektronik Anda. Paket Penyucian Baduy Dalam adalah sebuah perjalanan spiritual dan fisik menuju Desa Cibeo, salah satu dari tiga desa terdalam di wilayah adat Kanekes. Di sini, tidak ada listrik, sabun kimia dilarang, dan jalanan hanya diterangi oleh cahaya bulan dan obor.</p>
+            <p>Anda akan melakukan perjalanan kaki menyusuri bukit dan lembah, lalu menginap di rumah salah satu warga asli Baduy Dalam. Ini adalah kesempatan langka untuk benar-benar melepaskan diri dari penatnya dunia digital dan meresapi kembali makna kehidupan yang paling murni.</p>
+
+            <div class="itinerary-box">
+                <h3>Rencana Perjalanan (2 Hari 1 Malam)</h3>
+                <ul>
+                    <li><strong>HARI 1 - 07:00</strong> : Kumpul di Rangkasbitung, menuju Ciboleger.</li>
+                    <li><strong>HARI 1 - 10:30</strong> : Memulai trekking menembus hutan (estimasi 4-5 jam perjalanan santai).</li>
+                    <li><strong>HARI 1 - 15:00</strong> : Tiba di Desa Cibeo (Baduy Dalam), pembagian homestay, dan mandi di sungai.</li>
+                    <li><strong>HARI 1 - 18:30</strong> : Makan malam bersama tuan rumah dan obrolan malam tanpa cahaya gawai.</li>
+                    <li><strong>HARI 2 - 06:00</strong> : Menikmati kabut pagi Kanekes, sarapan, dan persiapan pulang.</li>
+                    <li><strong>HARI 2 - 08:00</strong> : Trekking kembali melalui jalur yang berbeda (jalur Jembatan Akar).</li>
+                    <li><strong>HARI 2 - 13:00</strong> : Tiba kembali di peradaban luar dan diantar ke Stasiun Rangkasbitung.</li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="booking-card">
+                <h3>Rp 450.000</h3>
+                <span class="price-note">Per Orang / 2 Hari 1 Malam</span>
+                
+                <ul class="facility-list">
+                    <li><span>✓</span> Transportasi Stasiun Rangkasbitung - Ciboleger PP</li>
+                    <li><span>✓</span> Homestay di Rumah Warga Asli Baduy Dalam</li>
+                    <li><span>✓</span> Makan 3x (Menu Tradisional Bebas Kimia)</li>
+                    <li><span>✓</span> Perizinan Khusus Baduy Dalam</li>
+                    <li><span>✓</span> Guide Lokal Asli Baduy Dalam</li>
+                </ul>
+
+                <a href="#" class="btn-gold">Pesan Jadwal Sekarang</a>
+            </div>
+        </aside>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Ulin Ka Baduy. Semua Hak Dilindungi.</p>
+        &copy; 2026 Ulin Ka Baduy. Dikelola dengan raga, pikiran, dan penghormatan.
     </footer>
 
 </body>
