@@ -5,337 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulin Ka Baduy | Open Trip & Eksplorasi Budaya</title>
     <style>
-        /* --- Reset & Dasar Typography --- */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: #FAFAFA; color: #333; }
         
-        body { 
-            background-color: #FAFAFA; 
-            color: #333; 
-            scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
-        }
+        /* Navbar */
+        header { background-color: #ffffff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 24px; font-weight: bold; color: #2C5E3B; text-decoration: none;}
+        nav a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #2C5E3B; }
         
-        /* --- Navbar --- */
-        header { 
-            background-color: #ffffff; 
-            padding: 20px 50px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-            position: sticky; /* Membuat navbar tetap di atas saat di-scroll */
-            top: 0;
-            z-index: 1000;
-        }
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(44, 94, 59, 0.8), rgba(44, 94, 59, 0.8)), url('https://via.placeholder.com/1200x600/2C5E3B/FFFFFF?text=Foto+Lanskap+Baduy+Di+Sini') center/cover; color: white; text-align: center; padding: 120px 20px; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: 1px; }
+        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
         
-        .logo { 
-            font-size: 24px; 
-            font-weight: bold; 
-            color: #2C5E3B; 
-        }
+        /* Navigation Cards Section */
+        .hub-section { padding: 80px 50px; text-align: center; }
+        .hub-section h2 { font-size: 36px; color: #2C5E3B; margin-bottom: 50px; }
+        .cards-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         
-        nav a { 
-            margin-left: 20px; 
-            text-decoration: none; 
-            color: #555; 
-            font-weight: 500; 
-            transition: color 0.3s;
-        }
+        /* Hub Card Style */
+        .hub-card { background: white; padding: 40px 30px; border-radius: 10px; width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s; text-align: center; border-bottom: 4px solid transparent; }
+        .hub-card:hover { transform: translateY(-10px); border-bottom: 4px solid #D4A373; }
+        .hub-card h3 { font-size: 24px; margin-bottom: 15px; color: #2C5E3B; }
+        .hub-card p { color: #666; margin-bottom: 25px; line-height: 1.5; }
+        .hub-btn { display: inline-block; background-color: #2C5E3B; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .hub-btn:hover { background-color: #D4A373; }
         
-        nav a:hover {
-            color: #2C5E3B;
-        }
-        
-        /* --- Hero Section --- */
-        .hero { 
-            background: linear-gradient(rgba(44, 94, 59, 0.8), rgba(44, 94, 59, 0.8)), url('https://via.placeholder.com/1200x600/2C5E3B/FFFFFF?text=Foto+Lanskap+Baduy+Di+Sini') center/cover;
-            color: white; 
-            text-align: center; 
-            padding: 120px 20px; 
-        }
-        
-        .hero h1 { 
-            font-size: 48px; 
-            margin-bottom: 20px; 
-            letter-spacing: 1px; 
-        }
-        
-        .hero p { 
-            font-size: 18px; 
-            max-width: 600px; 
-            margin: 0 auto 30px; 
-            line-height: 1.6; 
-        }
-        
-        .cta-btn { 
-            background-color: #D4A373; 
-            color: white; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            font-size: 18px; 
-            transition: 0.3s; 
-            display: inline-block;
-        }
-        
-        .cta-btn:hover { 
-            background-color: #B58555; 
-        }
-
-        /* --- Packages Section --- */
-        .packages { 
-            padding: 80px 50px; 
-            text-align: center; 
-        }
-        
-        .packages h2 { 
-            font-size: 36px; 
-            color: #2C5E3B; 
-            margin-bottom: 50px; 
-        }
-        
-        .cards-container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px; 
-            flex-wrap: wrap; 
-        }
-        
-        /* Stratified Package Cards */
-        .card { 
-            background: white; 
-            padding: 40px 30px; 
-            border-radius: 10px; 
-            width: 300px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            border-top: 5px solid #2C5E3B; 
-            text-align: left;
-        }
-        
-        .card.premium { 
-            border-top: 5px solid #D4A373; 
-            transform: translateY(-10px); 
-        } 
-        
-        .card h3 { 
-            font-size: 24px; 
-            margin-bottom: 10px; 
-        }
-        
-        .card .price { 
-            font-size: 28px; 
-            font-weight: bold; 
-            color: #2C5E3B; 
-            margin-bottom: 20px; 
-        }
-        
-        .card ul { 
-            list-style: none; 
-            margin-bottom: 30px; 
-            color: #666; 
-        }
-        
-        .card ul li { 
-            margin-bottom: 10px; 
-            padding-left: 20px; 
-            position: relative; 
-        }
-        
-        .card ul li::before { 
-            content: '✓'; 
-            position: absolute; 
-            left: 0; 
-            color: #D4A373; 
-            font-weight: bold;
-        }
-        
-        .card-btn { 
-            display: block; 
-            text-align: center; 
-            border: 2px solid #2C5E3B; 
-            color: #2C5E3B; 
-            text-decoration: none; 
-            padding: 10px; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            transition: 0.3s; 
-        }
-        
-        .card-btn:hover { 
-            background-color: #2C5E3B; 
-            color: white; 
-        }
-        
-        .card.premium .card-btn { 
-            background-color: #D4A373; 
-            border-color: #D4A373; 
-            color: white; 
-        }
-        
-        .card.premium .card-btn:hover { 
-            background-color: #B58555; 
-        }
-
-        /* --- Gallery Section --- */
-        .gallery { 
-            padding: 80px 50px; 
-            background-color: #ffffff; 
-            text-align: center; 
-        }
-        
-        .gallery h2 { 
-            font-size: 36px; 
-            color: #2C5E3B; 
-            margin-bottom: 10px; 
-        }
-        
-        .gallery p { 
-            color: #777; 
-            margin-bottom: 40px; 
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 15px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .grid-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 200px;
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: grayscale(20%);
-        }
-
-        .grid-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%);
-        }
-
-        /* Overlay teks saat hover */
-        .grid-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(44, 94, 59, 0.7);
-            color: white;
-            padding: 10px;
-            font-size: 14px;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .grid-item:hover .overlay { 
-            opacity: 1; 
-        }
-
-        /* --- Footer Sederhana --- */
-        footer {
-            background-color: #2C5E3B;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+        footer { background-color: #2C5E3B; color: white; text-align: center; padding: 20px; margin-top: 40px; }
     </style>
 </head>
-<body id="beranda">
+<body>
 
     <header>
-        <div class="logo">Ulin Ka Baduy.</div>
+        <a href="index.html" class="logo">Ulin Ka Baduy.</a>
         <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#paket">Paket Trip</a>
-            <a href="#galeri">Dokumentasi</a>
+            <a href="index.html">Beranda</a>
+            <a href="paket.html">Paket Trip</a>
+            <a href="galeri.html">Dokumentasi</a>
+            <a href="panduan.html">Panduan</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Kembali ke Alam, Menyelami Kesederhanaan.</h1>
-        <p>Tinggalkan sejenak hiruk-pikuk kota. Rasakan kedamaian dan kearifan lokal suku Baduy dalam perjalanan otentik yang telah kami rancang khusus untuk Anda.</p>
-        <a href="#paket" class="cta-btn">Mulai Petualangan</a>
+        <p>Tinggalkan sejenak hiruk-pikuk kota. Rasakan kedamaian dan kearifan lokal suku Baduy dalam perjalanan otentik yang dirancang khusus untuk Anda.</p>
     </section>
 
-    <section id="paket" class="packages">
-        <h2>Pilihan Perjalanan Anda</h2>
+    <section class="hub-section">
+        <h2>Jelajahi Layanan Kami</h2>
         <div class="cards-container">
             
-            <div class="card">
-                <h3>Eksplorasi Baduy Luar</h3>
-                <p>Pengenalan budaya yang nyaman.</p>
-                <div class="price">Rp 250.000</div>
-                <ul>
-                    <li>Transportasi PP Stasiun</li>
-                    <li>Tiket masuk & Perizinan</li>
-                    <li>Homestay di Baduy Luar</li>
-                    <li>Makan 2x</li>
-                    <li>Guide lokal berpengalaman</li>
-                </ul>
-                <a href="#" class="card-btn">Pilih Paket</a>
+            <div class="hub-card">
+                <h3>Pilihan Paket</h3>
+                <p>Temukan paket perjalanan yang paling sesuai dengan jiwa petualang dan kebutuhan Anda, mulai dari eksplorasi ringan hingga ekspedisi mendalam.</p>
+                <a href="paket.html" class="hub-btn">Lihat Paket</a>
             </div>
 
-            <div class="card premium">
-                <h3>Ekspedisi Baduy Dalam</h3>
-                <p>Pengalaman otentik menyeluruh.</p>
-                <div class="price">Rp 450.000</div>
-                <ul>
-                    <li>Semua fasilitas Baduy Luar</li>
-                    <li>Trekking ke Baduy Dalam</li>
-                    <li>Menginap di rumah warga asli</li>
-                    <li>Makan 4x (Menu Tradisional)</li>
-                    <li>Porter untuk logistik grup</li>
-                </ul>
-                <a href="#" class="card-btn">Pilih Paket</a>
+            <div class="hub-card">
+                <h3>Dokumentasi Trip</h3>
+                <p>Intip momen-momen magis dan kehangatan interaksi yang terekam secara nyata dari perjalanan para peserta kami sebelumnya di tanah Kanekes.</p>
+                <a href="galeri.html" class="hub-btn">Lihat Galeri</a>
             </div>
 
-        </div>
-    </section>
+            <div class="hub-card">
+                <h3>Panduan & Aturan</h3>
+                <p>Pahami adat istiadat, pantangan, dan persiapan penting yang wajib diketahui sebelum Anda melangkahkan kaki memasuki kawasan suku Baduy.</p>
+                <a href="panduan.html" class="hub-btn">Baca Panduan</a>
+            </div>
 
-    <section id="galeri" class="gallery">
-        <h2>Dokumentasi Perjalanan</h2>
-        <p>Melihat kembali momen-momen hangat di jantung tanah Kanekes.</p>
-
-        <div class="grid-container">
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/2C5E3B/FFFFFF?text=Jembatan+Bambu" alt="Jembatan Bambu Baduy">
-                <div class="overlay">Jembatan Akar & Bambu</div>
-            </div>
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/D4A373/FFFFFF?text=Rumah+Adat" alt="Rumah Adat Baduy">
-                <div class="overlay">Kearifan Arsitektur Lokal</div>
-            </div>
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/2C5E3B/FFFFFF?text=Tenun+Baduy" alt="Tenun Baduy">
-                <div class="overlay">Proses Menenun Kain</div>
-            </div>
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/D4A373/FFFFFF?text=Suasana+Pagi" alt="Suasana Pagi">
-                <div class="overlay">Kabut Pagi di Desa</div>
-            </div>
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/2C5E3B/FFFFFF?text=Trekking" alt="Trekking">
-                <div class="overlay">Jalur Trekking Menantang</div>
-            </div>
-            <div class="grid-item">
-                <img src="https://via.placeholder.com/400x300/D4A373/FFFFFF?text=Warga+Lokal" alt="Warga Lokal">
-                <div class="overlay">Hangatnya Tegur Sapa</div>
-            </div>
         </div>
     </section>
 
