@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ulin Ka Baduy | Eksplorasi Budaya Otentik</title>
+    <title>Ulin Ka Baduy | Perjalanan Jiwa ke Tanah Kanekes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- Reset & Font --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Lexend', sans-serif; }
-        body { background-color: #FDFBF7; color: #1E3F27; overflow-x: hidden; }
+        /* --- Reset & Base Typography --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #F9F6F0; /* Warm Ivory / Kertas Klasik */
+            color: #2C302E; /* Rich Charcoal / Abu-abu Gelap Elegan */
+            font-family: 'Lato', sans-serif; 
+            overflow-x: hidden; 
+            line-height: 1.7;
+        }
 
-        /* --- Navbar Modern --- */
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
+
+        /* --- Navbar Editorial --- */
         header { 
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            padding: 20px 60px;
+            background: rgba(249, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -21,201 +30,126 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(44, 48, 46, 0.05);
         }
-        .logo { font-size: 22px; font-weight: 800; color: #1E3F27; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;}
-        .logo span { color: #D4A373; }
-        nav a { margin-left: 30px; text-decoration: none; color: #444; font-weight: 500; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: #D4A373; }
+        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px;}
+        .logo span { color: #C18C5D; font-style: italic; }
+        
+        nav a { 
+            margin-left: 35px; text-decoration: none; color: #555; 
+            font-weight: 400; font-size: 14px; letter-spacing: 0.5px;
+            transition: color 0.4s ease; 
+        }
+        nav a:hover { color: #C18C5D; }
 
-        /* --- Hero Section dengan Slideshow Otomatis --- */
+        /* --- Hero Section Tanpa Kotak Menghalangi --- */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
             color: white;
             text-align: center;
         }
 
-        /* Background Slider menggunakan foto yang diunggah */
+        /* Latar Belakang & Animasi */
         .hero-slider {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
+            z-index: -2;
             background-size: cover;
             background-position: center;
             animation: slideAnimation 18s infinite;
         }
 
+        /* Gradient Gelap Halus agar teks putih terbaca sempurna */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: -1;
+        }
+
         @keyframes slideAnimation {
-            0%, 33% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto1.jpg'); }
-            34%, 66% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto2.jpg'); }
-            67%, 100% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto3.jpg'); }
+            0%, 33% { background-image: url('foto1.jpg'); }
+            34%, 66% { background-image: url('foto2.jpg'); }
+            67%, 100% { background-image: url('foto3.jpg'); }
         }
 
-        /* Hero Content yang sudah transparan */
         .hero-content {
-            background: rgba(0, 0, 0, 0.15); 
-            backdrop-filter: blur(3px); 
-            padding: 50px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            max-width: 850px;
-            margin: 0 20px;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+            margin-top: 50px;
         }
 
-        .hero-content h1 { font-size: 56px; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-        .hero-content p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; line-height: 1.6; }
+        .hero-content h1 { 
+            font-size: 64px; 
+            line-height: 1.1; 
+            margin-bottom: 25px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.3); /* Bayangan teks estetik */
+        }
+        
+        .hero-content p { 
+            font-size: 18px; 
+            margin-bottom: 40px; 
+            font-weight: 300; 
+            opacity: 0.95; 
+            text-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+        }
 
+        /* Tombol Premium */
         .cta-group { display: flex; gap: 20px; justify-content: center; }
-        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; font-size: 15px; }
-        .btn-gold { background: #D4A373; color: white; box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3); }
-        .btn-gold:hover { background: #B58555; transform: translateY(-3px); }
-        .btn-outline { border: 2px solid white; color: white; }
-        .btn-outline:hover { background: white; color: #1E3F27; }
+        .btn { 
+            padding: 16px 40px; border-radius: 4px; /* Ujung sedikit kotak, lebih klasik */
+            text-decoration: none; font-weight: 400; letter-spacing: 1px;
+            transition: all 0.4s ease; font-size: 14px; text-transform: uppercase;
+        }
+        .btn-gold { background: #C18C5D; color: white; border: 1px solid #C18C5D; }
+        .btn-gold:hover { background: #A97142; border-color: #A97142; }
+        
+        .btn-outline { border: 1px solid rgba(255,255,255,0.7); color: white; backdrop-filter: blur(5px); }
+        .btn-outline:hover { background: white; color: #2C302E; border-color: white; }
 
-        /* --- Trust Indicators --- */
-        .trust-section { background: #1E3F27; color: #D4A373; padding: 40px; display: flex; justify-content: space-around; text-align: center; }
-        .trust-item h3 { font-size: 28px; color: white; }
-        .trust-item p { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 5px; }
+        /* --- Trust Indicators Editorial --- */
+        .trust-section { 
+            background: #F9F6F0; 
+            color: #546A50; 
+            padding: 60px 40px; 
+            display: flex; 
+            justify-content: space-around; 
+            text-align: center; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .trust-item h3 { font-size: 32px; color: #C18C5D; font-style: italic; margin-bottom: 5px;}
+        .trust-item p { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #2C302E;}
 
         /* --- Hub Navigation Section --- */
-        .hub { padding: 100px 60px; text-align: center; }
-        .hub h2 { font-size: 32px; margin-bottom: 50px; font-weight: 800; }
-        .hub-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .hub { padding: 120px 60px; text-align: center; }
+        .hub h2 { font-size: 38px; margin-bottom: 15px; color: #546A50; }
+        .hub > p { font-size: 16px; color: #666; margin-bottom: 60px; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;}
+        
+        .hub-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
 
+        /* Kartu dengan desain minimalis elegan */
         .hub-card {
-            background: white;
-            width: 350px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            border: 1px solid #F0F0F0;
-            transition: 0.4s;
+            background: #ffffff;
+            width: 360px;
+            padding: 50px 40px;
+            border-radius: 2px; /* Kesan editorial majalah */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border-top: 4px solid #546A50;
+            transition: all 0.4s ease;
             text-align: left;
         }
-        .hub-card:hover { transform: translateY(-15px); border-color: #D4A373; }
-        .hub-card h4 { font-size: 22px; margin-bottom: 15px; }
-        .hub-card p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 25px; }
-        .hub-link { color: #1E3F27; text-decoration: none; font-weight: 700; font-size: 14px; border-bottom: 2px solid #D4A373; padding-bottom: 5px; }
-
-        footer { background: #152C1B; color: white; padding: 40px; text-align: center; font-size: 13px; opacity: 0.7; }
-
-        /* ========================================================= */
-        /* --- TAMPILAN MOBILE (HP) / RESPONSIVE MEDIA QUERIES --- */
-        /* ========================================================= */
-        @media (max-width: 768px) {
-            /* Perbaikan Navbar / Header */
-            header {
-                flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-            }
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            nav a {
-                margin-left: 0; /* Menghapus jarak default dari desktop */
-            }
-
-            /* Perbaikan Teks Kotak Hero */
-            .hero-content {
-                padding: 30px 20px;
-                margin: 0 15px;
-                margin-top: 60px; /* Memberi jarak agar tidak tertutup navbar baru */
-            }
-            .hero-content h1 {
-                font-size: 36px; /* Mengecilkan teks "Lepas Penat..." */
-            }
-            .hero-content p {
-                font-size: 15px;
-            }
-
-            /* Perbaikan Tombol (Agar tersusun ke bawah di HP) */
-            .cta-group {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .btn {
-                width: 100%; /* Tombol mengisi lebar layar HP */
-            }
-
-            /* Perbaikan Trust Bar & Card */
-            .trust-section {
-                flex-direction: column;
-                gap: 25px;
-                padding: 30px 20px;
-            }
-            .hub {
-                padding: 60px 20px;
-            }
-            .hub-card {
-                width: 100%; /* Card mengikuti lebar layar HP */
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;800&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <header>
-        <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
-        <nav>
-            <a href="index.html">Beranda</a>
-            <a href="paket.html">Paket Trip</a>
-            <a href="galeri.html">Galeri</a>
-            <a href="panduan.html">Panduan</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-slider"></div>
-        <div class="hero-content">
-            <h1>Lepas Penat,<br>Menyatu dengan Alam.</h1>
-            <p>Rasakan pengalaman otentik menjelajahi jantung tanah Kanekes. Sebuah perjalanan singkat yang akan mengubah cara Anda melihat dunia.</p>
-            <div class="cta-group">
-                <a href="paket.html" class="btn btn-gold">Pilih Paket Trip</a>
-                <a href="galeri.html" class="btn btn-outline">Lihat Dokumentasi</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="trust-section">
-        <div class="trust-item"><h3>500+</h3><p>Travelers</p></div>
-        <div class="trust-item"><h3>100%</h3><p>Lokal Asli</p></div>
-        <div class="trust-item"><h3>Aman</h3><p>Berlisensi</p></div>
-    </section>
-
-    <section class="hub">
-        <h2>Rencanakan Langkahmu</h2>
-        <div class="hub-grid">
-            <div class="hub-card">
-                <h4>Paket Open Trip</h4>
-                <p>Mulai petualanganmu dari paket harian hingga ekspedisi Baduy Dalam yang mendalam.</p>
-                <a href="paket.html" class="hub-link">Cek Detail Harga</a>
-            </div>
-            <div class="hub-card">
-                <h4>Galeri Cerita</h4>
-                <p>Intip momen hangat dan kearifan lokal yang terekam dalam perjalanan kami sebelumnya.</p>
-                <a href="galeri.html" class="hub-link">Jelajahi Foto</a>
-            </div>
-            <div class="hub-card">
-                <h4>Buku Panduan</h4>
-                <p>Pahami aturan adat dan persiapan penting sebelum menginjakkan kaki di tanah suci.</p>
-                <a href="panduan.html" class="hub-link">Baca Aturan</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2026 Ulin Ka Baduy Travel Center. Semua Hak Dilindungi.
-    </footer>
-
-</body>
-</html>
+        .hub-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(84, 106, 80, 0.08); }
+        .hub-card h4 { font-size: 26px; margin-bottom: 15px; color: #2C302E;}
+        .hub-card p { font-size: 15px; color: #666; margin-bottom: 30px; }
+        
+        .hub-link { 
+            color: #C18C5D; text-decoration: none; font-weight: 700; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            display:
