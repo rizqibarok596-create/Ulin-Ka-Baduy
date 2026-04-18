@@ -25,7 +25,6 @@
         /* Layout Konten 2 Kolom */
         .package-container { max-width: 1100px; margin: 80px auto; padding: 0 40px; display: flex; gap: 60px; align-items: flex-start; }
         
-        /* Kolom Kiri: Detail & Copywriting */
         .content-main { flex: 2; }
         .content-main h2 { font-size: 32px; color: #546A50; margin-bottom: 20px; border-bottom: 1px solid #E5E0D8; padding-bottom: 10px;}
         .content-main p { font-size: 16px; color: #444; margin-bottom: 25px; }
@@ -36,15 +35,26 @@
         .itinerary-box li { margin-bottom: 15px; position: relative; padding-left: 25px; }
         .itinerary-box li::before { content: '•'; position: absolute; left: 0; color: #546A50; font-size: 20px; font-weight: bold; top: -5px;}
 
-        /* Kolom Kanan: Sticky Booking Card */
+        /* Kolom Kanan: Sticky Booking Card & Jadwal */
         .sidebar { flex: 1; position: sticky; top: 120px; }
         .booking-card { background: white; padding: 40px; border-top: 5px solid #546A50; box-shadow: 0 15px 40px rgba(0,0,0,0.05); text-align: center; }
         .booking-card h3 { font-size: 36px; color: #2C302E; margin-bottom: 5px; }
         .booking-card .price-note { font-size: 14px; color: #888; margin-bottom: 25px; display: block; }
         
-        .facility-list { text-align: left; margin-bottom: 30px; font-size: 14px; color: #555; }
+        .facility-list { text-align: left; margin-bottom: 20px; font-size: 14px; color: #555; }
         .facility-list li { margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px; list-style: none; }
         .facility-list li span { color: #546A50; font-weight: bold; margin-right: 10px; }
+
+        /* --- Desain Jadwal Keberangkatan --- */
+        .schedule-box { margin: 30px 0; text-align: left; background: #FDFBF7; padding: 20px; border-radius: 4px; border: 1px solid #E5E0D8; }
+        .schedule-title { font-size: 14px; font-weight: 700; color: #546A50; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #E5E0D8; padding-bottom: 10px; }
+        .schedule-list { list-style: none; padding: 0; margin: 0; }
+        .schedule-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed #E5E0D8; font-size: 15px; }
+        .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .date { font-weight: 700; color: #2C302E; }
+        
+        .quota { font-size: 11px; background: #EAE6DF; color: #546A50; padding: 4px 10px; border-radius: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;}
+        .quota.almost-full { background: #F4DCD6; color: #C1432E; }
 
         .btn-gold { display: block; width: 100%; padding: 15px; background: #C18C5D; color: white; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border-radius: 3px;}
         .btn-gold:hover { background: #A97142; }
@@ -103,17 +113,34 @@
         <aside class="sidebar">
             <div class="booking-card">
                 <h3>Rp 250.000</h3>
-                <span class="price-note">Per Orang / Keberangkatan Setiap Akhir Pekan</span>
+                <span class="price-note">Per Orang / Keberangkatan Akhir Pekan</span>
                 
                 <ul class="facility-list">
                     <li><span>✓</span> Transportasi PP Stasiun (Elf/Angkot)</li>
                     <li><span>✓</span> Tiket Masuk & Perizinan Adat</li>
                     <li><span>✓</span> 1x Makan Siang Khas Lokal</li>
                     <li><span>✓</span> Guide Asli Baduy Berpengalaman</li>
-                    <li><span>✓</span> Dokumentasi Perjalanan</li>
                 </ul>
 
-                <a href="#" class="btn-gold">Pesan Jadwal Sekarang</a>
+                <div class="schedule-box">
+                    <div class="schedule-title">Jadwal Terdekat 2026</div>
+                    <ul class="schedule-list">
+                        <li class="schedule-item">
+                            <span class="date">25 - 26 April</span>
+                            <span class="quota almost-full">Sisa 2 Seat</span>
+                        </li>
+                        <li class="schedule-item">
+                            <span class="date">2 - 3 Mei</span>
+                            <span class="quota">Tersedia</span>
+                        </li>
+                        <li class="schedule-item">
+                            <span class="date">9 - 10 Mei</span>
+                            <span class="quota">Tersedia</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Ulin%20Ka%20Baduy,%20saya%20tertarik%20mengikuti%20Open%20Trip%20Kembara%20Baduy%20Luar.%20Apakah%20kuota%20untuk%20tanggal%20[isi%20tanggal]%20masih%20tersedia?" target="_blank" class="btn-gold">Pesan Via WhatsApp</a>
             </div>
         </aside>
     </section>
