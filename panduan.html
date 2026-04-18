@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Krama & Adat | Ulin Ka Baduy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* --- Reset & Base Typography --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #F9F6F0; color: #2C302E; font-family: 'Lato', sans-serif; line-height: 1.8; overflow-x: hidden; }
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
+
+        /* Navbar Default */
+        header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
+        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px;}
+        .logo span { color: #C18C5D; font-style: italic; }
+        nav a { margin-left: 35px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: 0.4s ease; }
+        nav a:hover { color: #C18C5D; }
+
+        /* Hero Spesifik Halaman Panduan */
+        .page-hero { 
+            height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; 
+            text-align: center; color: white; 
+            background: linear-gradient(rgba(44, 48, 46, 0.6), rgba(44, 48, 46, 0.8)), url('foto3.jpg') center/cover; 
+            margin-top: 80px; 
+        }
+        .page-hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px;}
+        .page-hero p { font-size: 18px; font-style: italic; opacity: 0.9; max-width: 600px; line-height: 1.6;}
+
+        /* --- Layout Editorial Tata Krama --- */
+        .manifesto-container { max-width: 800px; margin: 80px auto; padding: 0 40px; text-align: center; }
+        
+        .intro-text { font-size: 20px; color: #546A50; font-style: italic; margin-bottom: 60px; line-height: 1.8; }
+        
+        .rule-block { text-align: left; margin-bottom: 60px; position: relative; padding-left: 40px; }
+        .rule-block::before { 
+            content: ''; position: absolute; left: 0; top: 10px; bottom: 0; 
+            width: 2px; background-color: #C18C5D; 
+        }
+        
+        .rule-block h3 { font-size: 28px; color: #546A50; margin-bottom: 15px; }
+        .rule-block p { font-size: 16px; color: #444; margin-bottom: 15px; text-align: justify; }
+        .rule-block .highlight { color: #C18C5D; font-weight: bold; }
+
+        .quote-block { 
+            background: white; padding: 50px; margin: 80px 0; 
+            border-top: 1px solid #E5E0D8; border-bottom: 1px solid #E5E0D8; 
+            text-align: center; 
+        }
+        .quote-block p { font-family: 'Playfair Display', serif; font-size: 24px; color: #2C302E; font-style: italic; line-height: 1.6; }
+
+        footer { background: #2C302E; color: #F9F6F0; padding: 40px; text-align: center; font-size: 13px; margin-top: 40px;}
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 20px; gap: 15px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { margin-left: 0; }
+            .page-hero h1 { font-size: 36px; }
+            .page-hero p { font-size: 16px; padding: 0 20px;}
+            .manifesto-container { padding: 0 20px; }
+            .rule-block { padding-left: 20px; }
+            .quote-block { padding: 30px 20px; }
+            .quote-block p { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="paket-luar.html">Kembara Luar</a>
+            <a href="paket-dalam.html">Penyucian Dalam</a>
+            <a href="panduan.html" style="color: #C18C5D;">Tata Krama</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div>
+            <h1>Adab Melangkah</h1>
+            <p>"Sebelum raga memasuki tanah adat, biarkan hati dan pikiran yang lebih dulu memohon izin pada semesta."</p>
+        </div>
+    </section>
+
+    <section class="manifesto-container">
+        <p class="intro-text">
+            Tanah Kanekes bukanlah sekadar destinasi liburan untuk berswafoto. Ini adalah ruang hidup sebuah peradaban yang memegang teguh kemurnian alam sejak ratusan tahun lalu. Sebagai tamu, kita hadir bukan untuk mengubah, melainkan untuk belajar merendahkan hati.
+        </p>
+
+        <div class="rule-block">
+            <h3>1. Puasa Derap Digital (Khusus Baduy Dalam)</h3>
+            <p>Di wilayah Baduy Dalam, waktu dibiarkan mengalir tanpa detak notifikasi. Anda diwajibkan <span class="highlight">mematikan seluruh gawai, ponsel, dan kamera.</span> Biarkan mata Anda yang menjadi lensa, dan jiwa Anda yang merekam memori. Rasakan kemewahan tertinggi abad ini: keheningan mutlak dari dunia maya.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>2. Merawat Urat Nadi Bumi</h3>
+            <p>Sungai adalah urat nadi kehidupan masyarakat Kanekes. Segala bahan kimia buatan manusia tidak memiliki tempat di sini. <span class="highlight">Dilarang keras menggunakan sabun, sampo, hingga pasta gigi pabrikan</span> saat Anda mandi di sungai Baduy Dalam. Bersihkan diri Anda dengan aliran air pegunungan yang suci, biarkan alam menyentuh kulit Anda secara murni.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>3. Berucap Tanpa Emosi, Melangkah Tanpa Keluh</h3>
+            <p>Perjalanan menembus rimbunnya hutan Kanekes mungkin akan menguji fisik Anda. Namun, ada pantangan tak tertulis: <span class="highlight">Jangan pernah mengeluh.</span> Simpan keluh kesah Anda, ganti lelah dengan helaan napas syukur. Berbicaralah dengan tutur kata yang lembut, hindari umpatan, dan hargai setiap langkah pendakian sebagai proses pendewasaan batin.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>4. Meminta Izin Kepada Semesta & Penghuninya</h3>
+            <p>Di Baduy Luar, penggunaan kamera masih diperbolehkan. Namun, arahkanlah lensa Anda dengan penuh etika. Penduduk lokal bukanlah objek tontonan. <span class="highlight">Mintalah izin dengan sopan dan senyuman</span> sebelum Anda mengabadikan wajah atau aktivitas mereka. Hormati privasi mereka layaknya Anda menghormati keluarga sendiri.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>5. Jejak yang Tertinggal Hanyalah Kenangan</h3>
+            <p>Alam telah menjamu Anda dengan keindahannya, maka jangan tinggalkan luka. Bawa kembali setiap lembar plastik, bungkus makanan, atau sampah sekecil apa pun ke luar dari tanah adat. <span class="highlight">Jangan mengambil apapun selain pelajaran, jangan meninggalkan apapun selain jejak kaki bersahaja.</span></p>
+        </div>
+
+        <div class="quote-block">
+            <p>"Gunung tak diperkenankan dilebur, lembah tak diperkenankan dirusak, larangan tak diperkenankan dilanggar."<br><span style="font-size: 16px; color: #666; font-style: normal; display: block; margin-top: 15px;">— Pikukuh (Aturan Mutlak) Suku Baduy</span></p>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2026 Ulin Ka Baduy. Dikelola dengan raga, pikiran, dan penghormatan.
+    </footer>
+
+</body>
+</html>
