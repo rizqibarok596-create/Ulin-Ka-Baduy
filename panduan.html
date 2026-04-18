@@ -6,53 +6,34 @@
     <title>Tata Krama & Adat | Ulin Ka Baduy</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- Reset & Base Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #F9F6F0; color: #2C302E; font-family: 'Lato', sans-serif; line-height: 1.8; overflow-x: hidden; }
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
-        /* Navbar Default */
         header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
-        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px;}
+        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px; white-space: nowrap;}
         .logo span { color: #C18C5D; font-style: italic; }
         nav a { margin-left: 35px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: 0.4s ease; }
         nav a:hover { color: #C18C5D; }
 
-        /* Hero Spesifik Halaman Panduan */
-        .page-hero { 
-            height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; 
-            text-align: center; color: white; 
-            background: linear-gradient(rgba(44, 48, 46, 0.6), rgba(44, 48, 46, 0.8)), url('foto3.jpg') center/cover; 
-            margin-top: 80px; 
-        }
+        .page-hero { height: 60vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: linear-gradient(rgba(44, 48, 46, 0.6), rgba(44, 48, 46, 0.8)), url('foto3.jpg') center/cover; margin-top: 80px; }
         .page-hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 15px; letter-spacing: 1px;}
         .page-hero p { font-size: 18px; font-style: italic; opacity: 0.9; max-width: 600px; line-height: 1.6;}
 
-        /* --- Layout Editorial Tata Krama --- */
         .manifesto-container { max-width: 800px; margin: 80px auto; padding: 0 40px; text-align: center; }
-        
         .intro-text { font-size: 20px; color: #546A50; font-style: italic; margin-bottom: 60px; line-height: 1.8; }
         
         .rule-block { text-align: left; margin-bottom: 60px; position: relative; padding-left: 40px; }
-        .rule-block::before { 
-            content: ''; position: absolute; left: 0; top: 10px; bottom: 0; 
-            width: 2px; background-color: #C18C5D; 
-        }
-        
+        .rule-block::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 0; width: 2px; background-color: #C18C5D; }
         .rule-block h3 { font-size: 28px; color: #546A50; margin-bottom: 15px; }
         .rule-block p { font-size: 16px; color: #444; margin-bottom: 15px; text-align: justify; }
         .rule-block .highlight { color: #C18C5D; font-weight: bold; }
 
-        .quote-block { 
-            background: white; padding: 50px; margin: 80px 0; 
-            border-top: 1px solid #E5E0D8; border-bottom: 1px solid #E5E0D8; 
-            text-align: center; 
-        }
+        .quote-block { background: white; padding: 50px; margin: 80px 0; border-top: 1px solid #E5E0D8; border-bottom: 1px solid #E5E0D8; text-align: center; }
         .quote-block p { font-family: 'Playfair Display', serif; font-size: 24px; color: #2C302E; font-style: italic; line-height: 1.6; }
 
         footer { background: #2C302E; color: #F9F6F0; padding: 40px; text-align: center; font-size: 13px; margin-top: 40px;}
 
-        /* Responsive */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; gap: 15px; }
             nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
