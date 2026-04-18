@@ -14,6 +14,7 @@
             font-family: 'Lato', sans-serif; 
             overflow-x: hidden; 
             line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
@@ -42,7 +43,7 @@
         }
         nav a:hover { color: #C18C5D; }
 
-        /* --- Hero Section Tanpa Kotak Menghalangi --- */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -114,7 +115,7 @@
         .btn-outline { border: 1px solid rgba(255,255,255,0.7); color: white; backdrop-filter: blur(5px); }
         .btn-outline:hover { background: white; color: #2C302E; border-color: white; }
 
-        /* --- Trust Indicators Editorial --- */
+        /* --- Trust Indicators --- */
         .trust-section { 
             background: #F9F6F0; 
             color: #546A50; 
@@ -185,10 +186,10 @@
     <header>
         <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
         <nav>
-            <a href="index.html">Beranda</a>
-            <a href="paket.html">Perjalanan</a>
-            <a href="galeri.html">Ruang Memori</a>
-            <a href="panduan.html">Adat & Tata Krama</a>
+            <a href="index.html" style="color: #C18C5D;">Beranda</a>
+            <a href="paket-luar.html">Kembara Luar</a>
+            <a href="paket-dalam.html">Penyucian Dalam</a>
+            <a href="panduan.html">Tata Krama</a>
         </nav>
     </header>
 
@@ -199,7 +200,7 @@
             <h1>Merengkuh Hening,<br>Menemukan Kembali Diri.</h1>
             <p>Tinggalkan sejenak kebisingan dunia modern. Sebuah undangan untuk melangkah ke jantung Kanekes, meresapi ritme hidup yang murni, sederhana, dan tak lekang oleh waktu.</p>
             <div class="cta-group">
-                <a href="paket.html" class="btn btn-gold">Pilih Tanggal Perjalanan</a>
+                <a href="#katalog-paket" class="btn btn-gold">Mulai Perjalanan</a>
                 <a href="galeri.html" class="btn btn-outline">Lihat Rekam Jejak</a>
             </div>
         </div>
@@ -211,7 +212,7 @@
         <div class="trust-item"><h3>Nyaman</h3><p>Fasilitator Dedikatif</p></div>
     </section>
 
-    <section class="hub">
+    <section id="katalog-paket" class="hub">
         <h2>Langkah Awal Perjalananmu</h2>
         <p>"Perjalanan ke Baduy bukan sekadar wisata, melainkan ziarah batin untuk kembali menghargai alam."</p>
         <div class="hub-grid">
@@ -219,13 +220,13 @@
             <div class="hub-card">
                 <h4>Kembara Baduy Luar</h4>
                 <p>Pengenalan awal yang lembut tentang budaya Kanekes. Nikmati interaksi hangat dengan warga dan keindahan arsitektur bambu tanpa harus menguras banyak tenaga.</p>
-                <a href="paket.html" class="hub-link">Pelajari Rute & Harga</a>
+                <a href="paket-luar.html" class="hub-link">Pelajari Rute & Harga</a>
             </div>
 
             <div class="hub-card">
                 <h4>Penyucian Baduy Dalam</h4>
                 <p>Sebuah ekspedisi mendalam menembus lebatnya hutan. Rasakan malam tanpa cahaya lampu, mandi di sungai jernih, dan tidur di bawah atap rumbia warga asli.</p>
-                <a href="paket.html" class="hub-link">Pelajari Rute & Harga</a>
+                <a href="paket-dalam.html" class="hub-link">Pelajari Rute & Harga</a>
             </div>
 
             <div class="hub-card">
