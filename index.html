@@ -15,7 +15,7 @@
         header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
         .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px; white-space: nowrap;}
         .logo span { color: #C18C5D; font-style: italic; }
-        nav a { margin-left: 35px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: color 0.4s ease; }
+        nav a { margin-left: 30px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: color 0.4s ease; }
         nav a:hover { color: #C18C5D; }
 
         /* --- Hero Section --- */
@@ -44,11 +44,14 @@
         .hub { padding: 120px 60px; text-align: center; }
         .hub h2 { font-size: 38px; margin-bottom: 15px; color: #546A50; }
         .hub > p { font-size: 16px; color: #666; margin-bottom: 60px; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;}
-        .hub-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
-        .hub-card { background: #ffffff; width: 360px; padding: 50px 40px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border-top: 4px solid #546A50; transition: all 0.4s ease; text-align: left; }
+        
+        .hub-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        
+        .hub-card { background: #ffffff; width: calc(50% - 20px); max-width: 450px; padding: 50px 40px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border-top: 4px solid #546A50; transition: all 0.4s ease; text-align: left; }
         .hub-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(84, 106, 80, 0.08); }
         .hub-card h4 { font-size: 26px; margin-bottom: 15px; color: #2C302E;}
         .hub-card p { font-size: 15px; color: #666; margin-bottom: 30px; }
+        
         .hub-link { color: #C18C5D; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; position: relative; }
         .hub-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: #C18C5D; transition: width 0.3s ease; }
         .hub-link:hover::after { width: 100%; }
@@ -56,6 +59,9 @@
         footer { background: #2C302E; color: #F9F6F0; padding: 50px; text-align: center; font-size: 13px; letter-spacing: 1px; }
 
         /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .hub-card { width: 100%; max-width: 100%; }
+        }
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; gap: 15px; }
             nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
@@ -66,7 +72,7 @@
             .btn { width: 100%; }
             .trust-section { flex-direction: column; gap: 40px; padding: 50px 20px; }
             .hub { padding: 80px 20px; }
-            .hub-card { width: 100%; padding: 40px 30px; }
+            .hub-card { padding: 40px 30px; }
         }
     </style>
 </head>
@@ -78,6 +84,7 @@
             <a href="index.html" style="color: #C18C5D;">Beranda</a>
             <a href="paket-luar.html">Kembara Luar</a>
             <a href="paket-dalam.html">Penyucian Dalam</a>
+            <a href="galeri.html">Ruang Memori</a>
             <a href="panduan.html">Tata Krama</a>
         </nav>
     </header>
@@ -90,6 +97,7 @@
             <p>Tinggalkan sejenak kebisingan dunia modern. Sebuah undangan untuk melangkah ke jantung Kanekes, meresapi ritme hidup yang murni, sederhana, dan tak lekang oleh waktu.</p>
             <div class="cta-group">
                 <a href="#katalog-paket" class="btn btn-gold">Mulai Perjalanan</a>
+                <a href="galeri.html" class="btn btn-outline">Lihat Ruang Memori</a>
             </div>
         </div>
     </section>
@@ -103,6 +111,7 @@
     <section id="katalog-paket" class="hub">
         <h2>Langkah Awal Perjalananmu</h2>
         <p>"Perjalanan ke Baduy bukan sekadar wisata, melainkan ziarah batin untuk kembali menghargai alam."</p>
+        
         <div class="hub-grid">
             
             <div class="hub-card">
@@ -115,6 +124,12 @@
                 <h4>Penyucian Baduy Dalam</h4>
                 <p>Sebuah ekspedisi mendalam menembus lebatnya hutan. Rasakan malam tanpa cahaya lampu, mandi di sungai jernih, dan tidur di bawah atap rumbia warga asli.</p>
                 <a href="paket-dalam.html" class="hub-link">Pelajari Rute & Harga</a>
+            </div>
+
+            <div class="hub-card">
+                <h4>Ruang Memori & Testimoni</h4>
+                <p>Jelajahi kumpulan momen magis dan cerita nyata dari mereka yang telah menemukan ketenangan dan kearifan lokal dalam perjalanan bersama kami sebelumnya.</p>
+                <a href="galeri.html" class="hub-link">Lihat Dokumentasi</a>
             </div>
 
             <div class="hub-card">
