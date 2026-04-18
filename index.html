@@ -56,13 +56,15 @@
             67%, 100% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto3.jpg'); }
         }
 
-        .hero-content {background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+        /* Hero Content yang sudah dibuat lebih transparan */
+        .hero-content {
+            background: rgba(0, 0, 0, 0.15); /* Mengubah tint menjadi gelap namun sangat tipis */
+            backdrop-filter: blur(3px); /* Blur diturunkan drastis agar foto di belakang terlihat jelas */
             padding: 50px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Garis tepi diperhalus */
             max-width: 850px;
-            margin: 0 20px; 
+            margin: 0 20px;
         }
 
         .hero-content h1 { font-size: 56px; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
