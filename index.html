@@ -8,123 +8,35 @@
     <style>
         /* --- Reset & Base Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: #F9F6F0; 
-            color: #2C302E; 
-            font-family: 'Lato', sans-serif; 
-            overflow-x: hidden; 
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
-
+        body { background-color: #F9F6F0; color: #2C302E; font-family: 'Lato', sans-serif; overflow-x: hidden; line-height: 1.7; scroll-behavior: smooth; }
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
-        /* --- Navbar Editorial --- */
-        header { 
-            background: rgba(249, 246, 240, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 25px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(44, 48, 46, 0.05);
-        }
+        /* --- Navbar --- */
+        header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
         .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px; white-space: nowrap;}
         .logo span { color: #C18C5D; font-style: italic; }
-        
-        nav a { 
-            margin-left: 35px; text-decoration: none; color: #555; 
-            font-weight: 400; font-size: 14px; letter-spacing: 0.5px;
-            transition: color 0.4s ease; 
-        }
+        nav a { margin-left: 35px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: color 0.4s ease; }
         nav a:hover { color: #C18C5D; }
 
         /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: white;
-            text-align: center;
-        }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
+        .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-size: cover; background-position: center; animation: slideAnimation 18s infinite; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%); z-index: -1; }
+        @keyframes slideAnimation { 0%, 33% { background-image: url('foto1.jpg'); } 34%, 66% { background-image: url('foto2.jpg'); } 67%, 100% { background-image: url('foto3.jpg'); } }
+        .hero-content { z-index: 1; max-width: 800px; padding: 0 20px; margin-top: 50px; }
+        .hero-content h1 { font-size: 64px; line-height: 1.1; margin-bottom: 25px; font-weight: 700; letter-spacing: -0.5px; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 18px; margin-bottom: 40px; font-weight: 300; opacity: 0.95; text-shadow: 1px 2px 5px rgba(0,0,0,0.4); }
 
-        /* Latar Belakang & Animasi */
-        .hero-slider {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
-            background-size: cover;
-            background-position: center;
-            animation: slideAnimation 18s infinite;
-        }
-
-        /* Gradient Gelap Halus agar teks putih terbaca sempurna */
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
-            z-index: -1;
-        }
-
-        @keyframes slideAnimation {
-            0%, 33% { background-image: url('foto1.jpg'); }
-            34%, 66% { background-image: url('foto2.jpg'); }
-            67%, 100% { background-image: url('foto3.jpg'); }
-        }
-
-        .hero-content {
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
-            margin-top: 50px;
-        }
-
-        .hero-content h1 { 
-            font-size: 64px; 
-            line-height: 1.1; 
-            margin-bottom: 25px; 
-            font-weight: 700; 
-            letter-spacing: -0.5px;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .hero-content p { 
-            font-size: 18px; 
-            margin-bottom: 40px; 
-            font-weight: 300; 
-            opacity: 0.95; 
-            text-shadow: 1px 2px 5px rgba(0,0,0,0.4);
-        }
-
-        /* Tombol Premium */
+        /* Buttons */
         .cta-group { display: flex; gap: 20px; justify-content: center; }
-        .btn { 
-            padding: 16px 40px; border-radius: 4px; 
-            text-decoration: none; font-weight: 400; letter-spacing: 1px;
-            transition: all 0.4s ease; font-size: 14px; text-transform: uppercase;
-        }
+        .btn { padding: 16px 40px; border-radius: 4px; text-decoration: none; font-weight: 400; letter-spacing: 1px; transition: all 0.4s ease; font-size: 14px; text-transform: uppercase; }
         .btn-gold { background: #C18C5D; color: white; border: 1px solid #C18C5D; }
         .btn-gold:hover { background: #A97142; border-color: #A97142; }
-        
         .btn-outline { border: 1px solid rgba(255,255,255,0.7); color: white; backdrop-filter: blur(5px); }
         .btn-outline:hover { background: white; color: #2C302E; border-color: white; }
 
         /* --- Trust Indicators --- */
-        .trust-section { 
-            background: #F9F6F0; 
-            color: #546A50; 
-            padding: 60px 40px; 
-            display: flex; 
-            justify-content: space-around; 
-            text-align: center; 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        .trust-section { background: #F9F6F0; color: #546A50; padding: 60px 40px; display: flex; justify-content: space-around; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .trust-item h3 { font-size: 32px; color: #C18C5D; font-style: italic; margin-bottom: 5px;}
         .trust-item p { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #2C302E;}
 
@@ -132,49 +44,26 @@
         .hub { padding: 120px 60px; text-align: center; }
         .hub h2 { font-size: 38px; margin-bottom: 15px; color: #546A50; }
         .hub > p { font-size: 16px; color: #666; margin-bottom: 60px; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;}
-        
         .hub-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
-
-        .hub-card {
-            background: #ffffff;
-            width: 360px;
-            padding: 50px 40px;
-            border-radius: 2px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            border-top: 4px solid #546A50;
-            transition: all 0.4s ease;
-            text-align: left;
-        }
+        .hub-card { background: #ffffff; width: 360px; padding: 50px 40px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border-top: 4px solid #546A50; transition: all 0.4s ease; text-align: left; }
         .hub-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(84, 106, 80, 0.08); }
         .hub-card h4 { font-size: 26px; margin-bottom: 15px; color: #2C302E;}
         .hub-card p { font-size: 15px; color: #666; margin-bottom: 30px; }
-        
-        .hub-link { 
-            color: #C18C5D; text-decoration: none; font-weight: 700; 
-            font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
-            display: inline-block; position: relative;
-        }
-        .hub-link::after {
-            content: ''; position: absolute; width: 0; height: 1px;
-            bottom: -4px; left: 0; background-color: #C18C5D;
-            transition: width 0.3s ease;
-        }
+        .hub-link { color: #C18C5D; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; position: relative; }
+        .hub-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: #C18C5D; transition: width 0.3s ease; }
         .hub-link:hover::after { width: 100%; }
 
         footer { background: #2C302E; color: #F9F6F0; padding: 50px; text-align: center; font-size: 13px; letter-spacing: 1px; }
 
-        /* --- MOBILE RESPONSIVE --- */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; gap: 15px; }
             nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
             nav a { margin-left: 0; }
-            
             .hero-content h1 { font-size: 42px; }
             .hero-content p { font-size: 16px; }
-            
             .cta-group { flex-direction: column; gap: 15px; }
             .btn { width: 100%; }
-
             .trust-section { flex-direction: column; gap: 40px; padding: 50px 20px; }
             .hub { padding: 80px 20px; }
             .hub-card { width: 100%; padding: 40px 30px; }
@@ -201,7 +90,6 @@
             <p>Tinggalkan sejenak kebisingan dunia modern. Sebuah undangan untuk melangkah ke jantung Kanekes, meresapi ritme hidup yang murni, sederhana, dan tak lekang oleh waktu.</p>
             <div class="cta-group">
                 <a href="#katalog-paket" class="btn btn-gold">Mulai Perjalanan</a>
-                <a href="galeri.html" class="btn btn-outline">Lihat Rekam Jejak</a>
             </div>
         </div>
     </section>
