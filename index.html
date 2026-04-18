@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ulin Ka Baduy</title>
+    <title>Ulin Ka Baduy - Merengkuh Hening</title>
     <style>
-        /* Pengaturan Dasar & Font */
+        /* Variabel Warna & Font */
+        :root {
+            --primary-green: #4b5d43;
+            --accent-brown: #ba8c5d;
+            --bg-creme: #f7f5f0;
+            --text-dark: #333333;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            background-color: var(--bg-creme);
+            color: var(--text-dark);
+            scroll-behavior: smooth; /* Membuat scroll terasa halus */
         }
 
-        /* Warna Utama dari Desain */
-        :root {
-            --primary-green: #4b5d43; /* Hijau gelap logo */
-            --accent-brown: #ba8c5d; /* Cokelat/Oranye logo & tombol */
-            --bg-nav: #f7f5f0; /* Krem muda background navbar */
-        }
-
-        /* Navigasi */
+        /* --- NAVIGASI --- */
         nav {
-            background-color: var(--bg-nav);
+            background-color: var(--bg-creme);
             padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Logo */
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
+            text-decoration: none;
         }
-        .logo .ulin {
-            color: var(--primary-green);
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .logo .baduy {
-            color: var(--accent-brown);
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-        }
+        .logo .ulin { color: var(--primary-green); font-family: 'Times New Roman', serif; }
+        .logo .baduy { color: var(--accent-brown); font-family: 'Times New Roman', serif; font-style: italic; }
 
-        /* Tautan Menu */
         .nav-links {
             list-style: none;
             display: flex;
@@ -56,93 +55,104 @@
         .nav-links li a {
             text-decoration: none;
             color: #555;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 500;
             transition: color 0.3s;
         }
-        .nav-links li a:hover,
-        .nav-links li a.active {
-            color: var(--accent-brown);
-        }
+        .nav-links li a:hover { color: var(--accent-brown); }
 
-        /* Bagian Hero (Gambar Latar) */
+        /* --- HERO SECTION --- */
         .hero {
-            /* Ganti 'background-baduy.jpg' dengan nama file gambar asli Anda */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background-baduy.jpg');
+            /* CATATAN: Ganti 'nama-file-gambar-anda.jpg' dengan file asli agar tidak abu-abu */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-baduy.jpg');
             background-size: cover;
             background-position: center;
-            height: 85vh;
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            color: #fff;
             padding: 0 20px;
         }
 
-        /* Konten di dalam Hero */
-        .hero-content {
-            max-width: 800px;
-            color: #ffffff;
-        }
+        .hero-content { max-width: 900px; }
+
         .hero-content h1 {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 3.5em;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             line-height: 1.2;
+            margin-bottom: 25px;
         }
+
         .hero-content p {
-            font-size: 1.2em;
+            font-size: 1.2rem;
             margin-bottom: 40px;
             line-height: 1.6;
-            color: #e0e0e0;
+            opacity: 0.9;
         }
 
-        /* Tombol Call to Action */
-        .btn-mulai {
+        .btn-cta {
             background-color: var(--accent-brown);
-            color: #ffffff;
-            padding: 15px 30px;
+            color: white;
+            padding: 16px 35px;
             text-decoration: none;
-            font-size: 16px;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 4px;
             letter-spacing: 1px;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
+            transition: background 0.3s;
         }
-        .btn-mulai:hover {
-            background-color: #a0764c;
+        .btn-cta:hover { background-color: #a37a51; }
+
+        /* --- KONTEN HALAMAN (SISTEM) --- */
+        section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* Responsif untuk HP */
+        h2 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .content-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            background: var(--primary-green);
+            color: white;
+            margin-top: 50px;
+        }
+
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-content h1 {
-                font-size: 2.5em;
-            }
+            nav { flex-direction: column; padding: 20px; gap: 15px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
+        <a href="index.html" class="logo">
             <span class="ulin">Ulin Ka</span> <span class="baduy">Baduy.</span>
-        </div>
+        </a>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Beranda</a></li>
+            <li><a href="index.html">Beranda</a></li>
             <li><a href="#kembara-luar">Kembara Luar</a></li>
             <li><a href="#penyucian-dalam">Penyucian Dalam</a></li>
             <li><a href="#tata-krama">Tata Krama</a></li>
-            <li><a href="galeri.html">Galeri</a></li> 
+            <li><a href="galeri.html" style="color: var(--accent-brown); font-weight: bold;">Galeri</a></li>
         </ul>
     </nav>
 
@@ -150,9 +160,36 @@
         <div class="hero-content">
             <h1>Merengkuh Hening,<br>Menemukan Kembali Diri.</h1>
             <p>Tinggalkan sejenak kebisingan dunia modern. Sebuah undangan untuk melangkah ke jantung Kanekes, meresapi ritme hidup yang murni, sederhana, dan tak lekang oleh waktu.</p>
-            <a href="#mulai-perjalanan" class="btn-mulai">MULAI PERJALANAN</a>
+            <a href="#kembara-luar" class="btn-cta">MULAI PERJALANAN</a>
         </div>
     </header>
+
+    <section id="kembara-luar">
+        <h2>Kembara Luar</h2>
+        <div class="content-box">
+            <p>Menjelajahi batas alam yang masih asri, menyaksikan bagaimana harmoni antara manusia dan bumi terjalin di wilayah Baduy Luar.</p>
+        </div>
+    </section>
+
+    <section id="penyucian-dalam" style="background-color: #fff;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2>Penyucian Dalam</h2>
+            <div class="content-box" style="box-shadow: none;">
+                <p>Memasuki jantung kesunyian. Pengalaman spiritual di Baduy Dalam yang menuntut ketulusan hati dan pelepasan atribut duniawi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tata-krama">
+        <h2>Tata Krama</h2>
+        <div class="content-box">
+            <p>Menghormati adat adalah langkah pertama. Pelajari aturan tak tertulis untuk menjaga kesucian tanah titipan nenek moyang.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ulin Ka Baduy. Melestarikan Tradisi, Merawat Hati.</p>
+    </footer>
 
 </body>
 </html>
