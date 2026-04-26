@@ -3,210 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeri Cerita - Ulin Ka Baduy</title>
+    <title>Ruang Memori & Cerita | Ulin Ka Baduy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Variabel Warna Sesuai Home Page */
-        :root {
-            --primary-green: #4b5d43;
-            --accent-brown: #ba8c5d;
-            --bg-creme: #f7f5f0;
-            --text-dark: #2c2c2c;
-            --text-light: #7a7a7a;
-        }
+        /* --- Reset & Base Typography --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #F9F6F0; color: #2C302E; font-family: 'Lato', sans-serif; line-height: 1.8; overflow-x: hidden; }
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* --- Navbar Lengkap --- */
+        header { background: rgba(249, 246, 240, 0.95); backdrop-filter: blur(10px); padding: 25px 60px; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(44, 48, 46, 0.05); }
+        .logo { font-size: 24px; font-weight: 700; color: #546A50; text-decoration: none; letter-spacing: 1px; white-space: nowrap;}
+        .logo span { color: #C18C5D; font-style: italic; }
+        nav a { margin-left: 30px; text-decoration: none; color: #555; font-weight: 400; font-size: 14px; letter-spacing: 0.5px; transition: color 0.4s ease; }
+        nav a:hover { color: #C18C5D; }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-creme);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+        /* --- Header Halaman Galeri --- */
+        .gallery-header { margin-top: 150px; text-align: center; padding: 0 20px; }
+        .gallery-header h1 { font-size: 52px; color: #546A50; margin-bottom: 15px; }
+        .gallery-header p { font-size: 20px; color: #666; font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-        /* Navigasi (Konsisten dengan Home) */
-        nav {
-            background-color: var(--bg-creme);
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        /* --- Grid Galeri --- */
+        .gallery-container { max-width: 1200px; margin: 80px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        
+        .gallery-item { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; }
+        
+        /* Desain placeholder jika foto belum dimuat dengan benar */
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; background-color: #EAE6DF; }
+        
+        .gallery-item:hover img { transform: scale(1.08); }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .logo .ulin { color: var(--primary-green); font-family: 'Times New Roman', serif; }
-        .logo .baduy { color: var(--accent-brown); font-family: 'Times New Roman', serif; font-style: italic; }
+        /* Overlay Testimoni yang muncul saat di-hover */
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(44, 48, 46, 0.9), rgba(44, 48, 46, 0.2)); opacity: 0; transition: opacity 0.4s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; color: white; }
+        .gallery-item:hover .overlay { opacity: 1; }
+        
+        .overlay p { font-style: italic; font-size: 15px; margin-bottom: 10px; line-height: 1.5; font-family: 'Playfair Display', serif; }
+        .overlay span { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #C18C5D; }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 15px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        .nav-links li a:hover { color: var(--accent-brown); }
+        footer { background: #2C302E; color: #F9F6F0; padding: 40px; text-align: center; font-size: 13px; margin-top: 80px;}
 
-        /* Header Galeri */
-        .gallery-header {
-            text-align: center;
-            padding: 80px 20px 60px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .gallery-header h1 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 3rem;
-            color: var(--primary-green);
-            margin-bottom: 20px;
-        }
-
-        .gallery-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* Grid Galeri Minimalis */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-            padding: 0 50px 100px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .gallery-card {
-            background: transparent;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .image-wrapper {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4/5; /* Rasio potret yang elegan */
-            margin-bottom: 20px;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%); /* Sentuhan vintage minimalis */
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-
-        /* Copywriting Testimoni */
-        .testimonial-content {
-            padding: 0 10px;
-        }
-
-        .testimonial-text {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .client-name {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-brown);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--primary-green);
-            color: var(--bg-creme);
-        }
-
-        /* Responsif */
+        /* Responsive Mobile */
         @media (max-width: 768px) {
-            nav { padding: 20px; flex-direction: column; gap: 15px; }
-            .gallery-grid { padding: 0 20px 60px; gap: 30px; }
-            .gallery-header h1 { font-size: 2.2rem; }
+            header { flex-direction: column; padding: 20px; gap: 15px; }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav a { margin-left: 0; }
+            .gallery-header { margin-top: 120px; }
+            .gallery-header h1 { font-size: 40px; }
+            .gallery-header p { font-size: 16px; }
+            .gallery-container { padding: 0 20px; grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">
-            <span class="ulin">Ulin Ka</span> <span class="baduy">Baduy.</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="#">Tata Krama</a></li>
-        </ul>
-    </nav>
-
-    <header class="gallery-header">
-        <h1>Cerita dari Akar</h1>
-        <p>"Bukan sekadar perjalanan, tapi sebuah kepulangan pada jati diri yang sederhana."</p>
+    <header>
+        <a href="index.html" class="logo">Ulin Ka <span>Baduy.</span></a>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="paket-luar.html">Kembara Luar</a>
+            <a href="paket-dalam.html">Penyucian Dalam</a>
+            <a href="galeri.html" style="color: #C18C5D;">Ruang Memori</a>
+            <a href="panduan.html">Tata Krama</a>
+        </nav>
     </header>
 
-    <main class="gallery-grid">
+    <section class="gallery-header">
+        <h1>Cerita dari Akar</h1>
+        <p>"Bukan sekadar perjalanan, tapi sebuah kepulangan pada jati diri yang sederhana."</p>
+    </section>
+
+    <section class="gallery-container">
         
-        <article class="gallery-card">
-            <div class="image-wrapper">
-                <img src="testi1.jpg" alt="Suasana Baduy">
+        <div class="gallery-item">
+            <img src="foto1.jpg" alt="Momen Jembatan Baduy">
+            <div class="overlay">
+                <p>"Berjalan menyusuri jembatan bambu ini menyadarkan saya betapa hebatnya harmoni antara manusia dan alam."</p>
+                <span>- Sarah, Peserta Kembara Luar</span>
             </div>
-            <div class="testimonial-content">
-                <p class="testimonial-text">"Di sini saya belajar bahwa sunyi adalah musik yang paling indah. Pulang dengan hati yang jauh lebih ringan."</p>
-                <span class="client-name">— Andini Putri</span>
-            </div>
-        </article>
+        </div>
 
-        <article class="gallery-card">
-            <div class="image-wrapper">
-                <img src="testi2.jpg" alt="Interaksi Budaya">
+        <div class="gallery-item">
+            <img src="foto2.jpg" alt="Suasana Perkampungan">
+            <div class="overlay">
+                <p>"Malam tanpa gawai mengubah cara saya berkomunikasi. Kami bercerita dan tertawa dengan tulus di bawah temaram obor."</p>
+                <span>- Bima, Peserta Penyucian Dalam</span>
             </div>
-            <div class="testimonial-content">
-                <p class="testimonial-text">"Melihat kehidupan yang jujur tanpa bising teknologi benar-benar menampar ego saya. Pengalaman spiritual yang nyata."</p>
-                <span class="client-name">— Dimas Setiadi</span>
-            </div>
-        </article>
+        </div>
 
-        <article class="gallery-card">
-            <div class="image-wrapper">
-                <img src="testi3.jpg" alt="Lanskap Kanekes">
+        <div class="gallery-item">
+            <img src="foto3.jpg" alt="Sungai Jernih Kanekes">
+            <div class="overlay">
+                <p>"Mandi di sungai tanpa sabun kimia, merasakan aliran air yang sangat murni. Benar-benar membasuh raga dan jiwa."</p>
+                <span>- Andina, Peserta Penyucian Dalam</span>
             </div>
-            <div class="testimonial-content">
-                <p class="testimonial-text">"Ulin Ka Baduy memberikan panduan yang sangat menghargai adat. Kami merasa seperti tamu yang diterima keluarga."</p>
-                <span class="client-name">— Siti Humaira</span>
-            </div>
-        </article>
+        </div>
 
-    </main>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/600x450/EAE6DF/546A50?text=Foto+Bersama+Warga" alt="Interaksi Budaya">
+            <div class="overlay">
+                <p>"Keramahan tuan rumah membuat kami merasa seperti mengunjungi keluarga sendiri. Terima kasih Ulin Ka Baduy."</p>
+                <span>- Keluarga Bapak Rio</span>
+            </div>
+        </div>
+
+    </section>
 
     <footer>
-        <p>&copy; 2026 Ulin Ka Baduy. Melestarikan Tradisi, Merawat Hati.</p>
+        &copy; 2026 Ulin Ka Baduy. Dikelola dengan raga, pikiran, dan penghormatan.
     </footer>
 
 </body>
