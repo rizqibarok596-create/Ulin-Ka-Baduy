@@ -124,9 +124,27 @@
         </div>
 
         <aside class="sidebar">
-            <div class="booking-card">
-                <h3>Rp 150.000</h3>
-                <span class="price-note">Per Orang / Keberangkatan Akhir Pekan</span>
+    <div class="booking-card">
+        <h3>
+            <span class="harga-coret">Rp 200.000</span>
+            Rp 150.000
+        </h3>
+        <span class="price-note">Per Orang / Keberangkatan Akhir Pekan</span>
+        
+        ```
+
+Lalu, tambahkan kode CSS ini ke dalam *stylesheet* agar efek coret merahnya terlihat rapi, modern, dan ukurannya proporsional bersanding dengan harga utama:
+
+```css
+.harga-coret {
+    text-decoration: line-through;
+    color: #ff3333; /* Warna merah tajam untuk efek psikologis diskon */
+    font-size: 0.65em; /* Dibuat lebih kecil agar tidak menyaingi harga promo */
+    font-weight: normal; /* Dibuat reguler agar harga promo (h3) lebih menonjol */
+    margin-right: 8px; /* Memberi ruang antara harga coret dan harga promo */
+    opacity: 0.8; /* Sedikit transparan agar lebih clean */
+}
+
                 
                 <ul class="facility-list">
                     <li><span>✓</span> Transportasi PP Stasiun (Elf)</li>
