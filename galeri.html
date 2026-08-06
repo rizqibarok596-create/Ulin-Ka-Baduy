@@ -23,17 +23,37 @@
         .gallery-header h1 { font-size: 52px; color: #546A50; margin-bottom: 15px; }
         .gallery-header p { font-size: 20px; color: #666; font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-        /* --- Grid Galeri --- */
-        .gallery-container { max-width: 1200px; margin: 50px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        /* --- Masonry Galeri (Menyesuaikan Tinggi Foto Asli Tanpa Crop) --- */
+        .gallery-container { 
+            max-width: 1200px; 
+            margin: 50px auto; 
+            padding: 0 40px; 
+            column-count: 3; /* Membagi menjadi 3 kolom */
+            column-gap: 30px; /* Jarak antar kolom */
+        }
         
-        .gallery-item { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; }
+        .gallery-item { 
+            position: relative; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            cursor: pointer;
+            break-inside: avoid; /* Mencegah foto terpotong ke kolom sebelahnya */
+            margin-bottom: 30px; /* Jarak bawah antar foto */
+        }
         
-        /* Desain placeholder jika foto belum dimuat dengan benar */
-        .gallery-item img { width: 50%; height: 50%; object-fit: cover; transition: transform 0.6s ease; background-color: #EAE6DF; }
+        /* Foto akan otomatis menyesuaikan proporsi aslinya */
+        .gallery-item img { 
+            width: 100%; 
+            height: auto; 
+            display: block;
+            transition: transform 0.6s ease; 
+            background-color: #EAE6DF; 
+        }
         
         .gallery-item:hover img { transform: scale(1.08); }
 
-        /* Overlay Testimoni yang muncul saat di-hover */
+        /* Overlay Testimoni */
         .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(44, 48, 46, 0.9), rgba(44, 48, 46, 0.2)); opacity: 0; transition: opacity 0.4s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; color: white; }
         .gallery-item:hover .overlay { opacity: 1; }
         
@@ -42,7 +62,11 @@
 
         footer { background: #2C302E; color: #F9F6F0; padding: 40px; text-align: center; font-size: 13px; margin-top: 80px;}
 
-        /* Responsive Mobile */
+        /* Responsive Mobile & Tablet */
+        @media (max-width: 1024px) {
+            .gallery-container { column-count: 2; } /* Jadi 2 kolom di tablet */
+        }
+        
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; gap: 15px; }
             nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
@@ -50,7 +74,7 @@
             .gallery-header { margin-top: 120px; }
             .gallery-header h1 { font-size: 40px; }
             .gallery-header p { font-size: 16px; }
-            .gallery-container { padding: 0 20px; grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); }
+            .gallery-container { padding: 0 20px; column-count: 1; } /* Jadi 1 kolom di HP */
         }
     </style>
 </head>
@@ -122,7 +146,7 @@
             </div>
         </div>
         
-            <div class="gallery-item">
+        <div class="gallery-item">
             <img src="baduy7.jpg" alt="Momen Jembatan Baduy">
             <div class="overlay">
                 <p>"Keren dan bahagia ikut trip bersama tim Ulinkabaduy."</p>
@@ -130,7 +154,7 @@
             </div>
          </div>
         
-                <div class="gallery-item">
+        <div class="gallery-item">
             <img src="baduy8.jpg" alt="Momen Jembatan Baduy">
             <div class="overlay">
                 <p>"Keren dan bahagia ikut trip bersama tim Ulinkabaduy."</p>
